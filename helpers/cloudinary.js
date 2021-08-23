@@ -12,7 +12,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "lab-profileapp",
+    folder: "artify-alpha",
     use_filename: true,
     allowedFormats:["jpg","png","jpeg","pdf"]
   },
