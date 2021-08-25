@@ -4,16 +4,16 @@ const passport = require("../helpers/passport"); // <--- importamos passport
 
 
 exports.signupProcess = async (req,res,next)=>{
-    const {username,password,...restUser} = req.body
+    const {email,password,...restUser} = req.body
    try{
-        if(!username || !password){
-            return res.status(400).json({msg:"username and Password empty"})
+        if(!email || !password){
+            return res.status(400).json({msg:"email and Password empty"})
         }
 
         const hasPass = bcrypt.hashSync(password,bcrypt.genSaltSync(12))
 
         const newUser = await User.create({
-                username,
+                email,
                 password:hasPass,
                 ...restUser
             })

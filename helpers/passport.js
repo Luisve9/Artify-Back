@@ -23,16 +23,16 @@ passport.deserializeUser(async (id,callback)=>{
 passport.use(
     new LocalStrategy(
         {
-            usernameField:"username"
+            usernameField:"email"
         },
-        async (username, password, callback)=>{
+        async (email, password, callback)=>{
             try{
-                const user = await User.findOne({ username })
+                const user = await User.findOne({ email })
                 if(!user){
-                    return callback(null,false,{msg:"Incorrect user or password"})
+                    return callback(null,false,{msg:"Incorrect email or password"})
                 }
                 if(!bcrypt.compareSync(password,user.password)){
-                    return callback(null,false,{msg:"Incorrect user ot password"})
+                    return callback(null,false,{msg:"Incorrect email or password"})
                 }
                 callback(null,user)
 
