@@ -50,9 +50,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Routes config
 const usersRouter = require('./routes/auth');
-
+const designRouter = require('./routes/design');
 
 app.use('/api/auth', usersRouter);
+app.use('/api/design', designRouter);
 
 
 app.use("*", (req, res) => {
