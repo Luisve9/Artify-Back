@@ -8,7 +8,7 @@ const designSchema = new Schema(
       ref: "User"
     },
     tags: {
-        type:[]
+        type:[String]
     },
     imgDesign:{
         type:String,
