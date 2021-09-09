@@ -4,6 +4,7 @@ exports.createDesign = (req,res) => {
     const imgDesign = req.file.path;
     const tags = req.body.tags.split(",")
     const design = {...req.body, imgDesign, tags};
+    console.log(imgDesign)
     Design.create(design)
         .then(design => res.status(200).json({design}))
         .catch(err => res.status(500).json({err}))
@@ -22,7 +23,15 @@ exports.getDesignsById = (req,res) => {
         .populate('_creator')
         .then(designs => res.status(200).json({designs}))
         .catch(err => res.status(500).json({err}))
-    
+}
+
+exports.getDesignByTag = (req,res) => {
+    const {tag} = req.params
+    Design.find({tags: {$in: [tag]}})
+        .limit(6)
+        .populate('_creator')
+        .then(designs => res.status(200).json({designs}))
+        .catch(err => res.status(500).json({err}))
 }
 
 exports.updateDesign = (req,res) => {
