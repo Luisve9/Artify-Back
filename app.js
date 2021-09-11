@@ -10,7 +10,7 @@ const session = require("express-session")
 const passport = require("./helpers/passport");
 
 mongoose
-  .connect(process.env.DB, {
+  .connect(process.env.DB_PROD, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -50,9 +50,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Routes config
 const usersRouter = require('./routes/auth');
-
+const designRouter = require('./routes/design');
 
 app.use('/api/auth', usersRouter);
+app.use('/api/design', designRouter);
 
 
 app.use("*", (req, res) => {
