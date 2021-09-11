@@ -10,7 +10,7 @@ const session = require("express-session")
 const passport = require("./helpers/passport");
 
 mongoose
-  .connect(process.env.DB, {
+  .connect(process.env.DB_PROD, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
