@@ -43,7 +43,6 @@ exports.updateDesign = (req,res) => {
 
 exports.deleteDesign = (req, res) => {
     const {id} = req.params
-    console.log(id)
     Design.findByIdAndDelete(id)
         .then(design => res.status(200).json({design}))
         .catch(err => res.status(500).json({err}))
