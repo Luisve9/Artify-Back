@@ -4,7 +4,7 @@ const uploader = require('../helpers/cloudinary');
 
 router.post('/create', uploader.single("imgDesign"), createDesign);
 router.get('/getAll', getAllDesigns);
-router.get('/getDesignById', getDesignsById);
+router.get('/getDesignById/:id', getDesignsById);
 router.get('/getDesignByTag/:tag', getDesignByTag);
 router.patch('/updateDesign', updateDesign);
 router.delete('/delete/:id', deleteDesign);

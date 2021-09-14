@@ -18,8 +18,8 @@ exports.getAllDesigns = (req,res) => {
 }
 
 exports.getDesignsById = (req,res) => {
-    const {_id} = req.user
-    Design.find({_creator: _id})
+    const {id} = req.params
+    Design.find({_creator: id})
         .populate('_creator')
         .then(designs => res.status(200).json({designs}))
         .catch(err => res.status(500).json({err}))
@@ -37,7 +37,7 @@ exports.getDesignByTag = (req,res) => {
 exports.updateDesign = (req,res) => {
     const {_id} = req.body
     Design.findByIdAndUpdate(_id, {...req.body}, {new:true})
-        .then(product => res.status(200).json({product}))
+        .then(design => res.status(200).json({design}))
         .catch(err => res.status(500).json({err}))
 }
 
