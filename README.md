@@ -12,29 +12,29 @@ To install all dependecies run in the project directory
 https://cloudinary.com/
 
 ## Create a .env file
-Set the following enviroment variables
+Set the following enviroment variables<br/>
 
-PORT=3001
-DB_PROD = /database connection (Mongo DB)/
-SECRET = /personal secret word/
+PORT=3001<br/>
+DB_PROD = /database connection (Mongo DB)/<br/>
+SECRET = /personal secret word/<br/>
 
 ### Cloudinary
 You can find these three values in you cloudinary account on the Dashboard menu
 
-CLOUDNAME
-CLOUDAPIKEY
-CLOUDSECRET
+CLOUDNAME <br/>
+CLOUDAPIKEY<br/>
+CLOUDSECRET<br/>
 
 ### nodeMailer
-email and password of the account thats is going to be used to send emails
+email and password of the account thats is going to be used to send emails<br/>
 
-EMAIL
-PASS
+EMAIL<br/>
+PASS<br/>
 
-The project is set to use an Outlook account, in case of using another server modify "helpers/sendMail.js" line 4. 
-/
-service:"your server"
-/
+The project is set to use an Outlook account, in case of using another server modify "helpers/sendMail.js" line 4. <br/>
+/<br/>
+service:"your server"<br/>
+/<br/>
 
 ## Available scripts
 
